@@ -6,6 +6,6 @@ These two script shows how to perform the forward and center differences to appr
 
 ![title](Images/abs_error_example.png)
 
-## Script 2 Relative error considering f(x) = log(x) + x/2
+## Script 2: Relative error considering f(x) = log(x) + x/2
 
 ![title](Images/relative_error_example.png)
