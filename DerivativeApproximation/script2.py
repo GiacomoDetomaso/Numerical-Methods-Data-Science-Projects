@@ -17,7 +17,7 @@ fun = (lambda x: np.log(x) + np.divide(x, 2))
 fun_prime = (lambda x: np.divide(1, x) + 1/2)  # first derivative of fun
 
 i = np.linspace(1, 50, 50)  # all the values of i are stored in an array
-h = np.power(2, -i) # element wise power
+h = np.power(base, -i) # element wise power
 
 # approximations' calculations in x0
 df_1 = np.divide((fun(x_0 + h) - fun(x_0)), h) # forward difference's formula
