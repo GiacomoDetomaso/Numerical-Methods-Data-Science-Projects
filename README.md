@@ -4,3 +4,4 @@ This repository contains the most important algorithms made during the course of
 ## Content 
 
 1. Derivative approximation: two examples, using the forward and center differences algorithms to approximate a derivative. The errors of the approximations are calculated too, and a graph is provided for both examples.
+2. Function roots: optimized ways to calculate the roots of a function
