@@ -64,21 +64,26 @@ def LU_factorization_partial_pivoting(A):
         - U: upper triangular matrix
     '''
     (a_m, a_n) = np.shape(A)  # misure matrice
+
+    if np.linalg.det(A) == 0:
+        error("Det = 0 A is singular and cannot be factorized")
+        return
+
     if a_m == a_n:
         n = a_m  # per semplificare la notazione
 
-        U = np.copy(A)
-        L = np.zeros([n, n])
-        P = np.eye(n)
+        U = np.asmatrix( np.copy(A) )
+        L = np.asmatrix( np.zeros([n,n]) )
+        P = np.asmatrix( np.eye(n) )
 
         if n == 1:
-            print("Quello passato in input è un valore scalare")
+            print("The input is a scalar!")
             L = 1  # metto l'uno sulla diagonale di L
             return P, L, U
         else:
             p_index = 0 # actual pivot
             rmax = 0  # rows which cotains the new pivot to be changed  with the one in p_index position
-            for i in range(n):
+            for i in range(1, n):
                 rmax = np.argmax(abs(U[p_index:n, p_index]))
                 rmax += p_index
 
@@ -98,7 +103,7 @@ def LU_factorization_partial_pivoting(A):
             return P, L, U
 
     else:
-        print("Errore, la matrice A non è quadrata")
+        error("The matrix must be square")
 
 
 def LU_factorization_complete_pivoting(A):
@@ -158,8 +163,9 @@ def LU_factorization_complete_pivoting(A):
                 p_index += 1
 
             L += np.eye(n)  # insert the 1 on L diagonal
-
             return P, L, U, Q
+    else: 
+        error("The matrix must be square")
 
 
 def inverse_LU(P, A, L, U):
